@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vegeta Mommy — Premium Services</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --silver:#c8c8d0;
+  --silver2:#e8e8f0;
+  --chrome:#a0a0b0;
+  --dark:#080808;
+  --darker:#040404;
+  --gold:#d4a820;
+  --goldl:#f0c840;
+  --red:#cc2020;
+  --blue:#1a6aff;
+  --teal:#00c8c8;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--darker);
+  color:#fff;
+  font-family:'Rajdhani',sans-serif;
+  overflow-x:hidden;
+  cursor:crosshair;
+}
+
+/* ══ PARTICLES CANVAS ══ */
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ══ HERO ══ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 50% 30%, #1a1a2e 0%, #000 60%);
+}
+
+.hero-bg-lines{
+  position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg,transparent,transparent 70px,rgba(180,120,0,0.04) 70px,rgba(180,120,0,0.04) 71px),
+    repeating-linear-gradient(90deg,transparent,transparent 70px,rgba(180,120,0,0.04) 70px,rgba(180,120,0,0.04) 71px);
+  z-index:1;
+}
+
+/* ── 3D Chrome VEGETA Logo ── */
+.vegeta-logo-wrap{
+  position:relative;z-index:10;
+  margin-bottom:12px;
+  animation:fadeDown 1s ease both;
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
+
+.vegeta-logo{
+  font-family:'Cinzel',serif;
+  font-size:clamp(52px,13vw,110px);
+  font-weight:900;
+  letter-spacing:8px;
+  text-transform:uppercase;
+  background:linear-gradient(180deg,
+    #ffffff 0%,
+    #e0e0e8 15%,
+    #a8a8b8 30%,
+    #d8d8e8 45%,
+    #707080 60%,
+    #c0c0d0 75%,
+    #585868 90%,
+    #909098 100%
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 30px rgba(200,200,255,0.5)) drop-shadow(2px 4px 0 rgba(0,0,0,0.8));
+  animation:chromePulse 4s ease-in-out infinite;
+}
+@keyframes chromePulse{
+  0%,100%{filter:drop-shadow(0 0 20px rgba(200,200,255,0.4)) drop-shadow(2px 4px 0 rgba(0,0,0,0.9));}
+  50%{filter:drop-shadow(0 0 50px rgba(220,220,255,0.8)) drop-shadow(2px 4px 0 rgba(0,0,0,0.9));}
+}
+
+.mommy-title{
+  font-family:'Rajdhani',sans-serif;
+  font-size:clamp(14px,3vw,22px);
+  letter-spacing:8px;
+  color:var(--gold);
+  text-transform:uppercase;
+  text-align:center;
+  margin-bottom:6px;
+  animation:fadeUp 1s 0.3s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.domain-tag{
+  font-size:12px;
+  letter-spacing:4px;
+  color:rgba(212,168,32,0.5);
+  text-align:center;
+  margin-bottom:30px;
+  animation:fadeUp 1s 0.5s ease both;
+}
+
+/* ── ANIME GIRL DANCER ── */
+.anime-stage{
+  position:relative;
+  width:220px;
+  height:280px;
+  margin:0 auto 20px;
+  z-index:10;
+  animation:fadeUp 1s 0.4s ease both;
+}
+
+.dancer-svg{
+  width:100%;height:100%;
+  animation:danceBounce 0.8s ease-in-out infinite alternate;
+  filter:drop-shadow(0 0 20px rgba(212,168,32,0.5));
+}
+@keyframes danceBounce{
+  from{transform:translateY(0) rotate(-2deg) scaleX(1);}
+  to{transform:translateY(-12px) rotate(2deg) scaleX(1.02);}
+}
+
+.dancer-glow{
+  position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);
+  width:120px;height:20px;
+  background:radial-gradient(ellipse,rgba(212,168,32,0.4),transparent 70%);
+  border-radius:50%;
+  animation:glowPulse 0.8s ease-in-out infinite alternate;
+}
+@keyframes glowPulse{
+  from{opacity:0.4;transform:translateX(-50%) scaleX(1);}
+  to{opacity:0.9;transform:translateX(-50%) scaleX(1.3);}
+}
+
+.online-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,200,100,0.12);
+  border:1px solid rgba(0,200,100,0.4);
+  border-radius:40px;
+  padding:6px 20px;
+  font-size:12px;
+  letter-spacing:2px;
+  color:#00ff80;
+  margin-bottom:10px;
+  z-index:10;position:relative;
+  animation:fadeUp 1s 0.6s ease both;
+}
+.green-dot{width:8px;height:8px;border-radius:50%;background:#00ff80;animation:blink 1.2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+/* ══ SECTION BASE ══ */
+.section{padding:60px 16px;max-width:900px;margin:0 auto;position:relative;z-index:5}
+.sec-title{
+  font-family:'Cinzel',serif;
+  font-size:clamp(20px,4vw,32px);
+  font-weight:700;
+  letter-spacing:4px;
+  color:var(--gold);
+  text-align:center;
+  margin-bottom:6px;
+}
+.sec-sub{
+  font-size:13px;letter-spacing:3px;color:rgba(212,168,32,0.5);
+  text-align:center;margin-bottom:36px;text-transform:uppercase;
+}
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,168,32,0.5),transparent);
+  margin:0 auto 48px;
+  max-width:500px;
+}
+
+/* ══ SERVICES ══ */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+.svc-card{
+  background:linear-gradient(160deg,#0e0e0e,#1a1a1a);
+  border:1px solid rgba(212,168,32,0.25);
+  border-radius:16px;
+  padding:28px 20px 24px;
+  text-align:center;
+  transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;
+  position:relative;overflow:hidden;
+  cursor:pointer;
+}
+.svc-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(212,168,32,0.07),transparent 60%);
+  pointer-events:none;
+}
+.svc-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 16px 50px rgba(212,168,32,0.25);
+  border-color:rgba(212,168,32,0.6);
+}
+.svc-card.hot{border-color:rgba(204,32,32,0.5);}
+.svc-card.hot:hover{box-shadow:0 16px 50px rgba(204,32,32,0.3);}
+.hot-badge{
+  position:absolute;top:14px;right:14px;
+  font-size:9px;font-weight:700;letter-spacing:1px;
+  background:var(--red);color:#fff;
+  padding:3px 10px;border-radius:20px;text-transform:uppercase;
+}
+.svc-icon{font-size:38px;margin-bottom:14px;display:block;animation:iconFloat 2.5s ease-in-out infinite;}
+@keyframes iconFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.svc-name{
+  font-family:'Orbitron',monospace;font-size:13px;font-weight:700;
+  letter-spacing:2px;color:var(--silver2);margin-bottom:10px;text-transform:uppercase;
+}
+.svc-price{
+  font-family:'Orbitron',monospace;font-size:32px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold),var(--goldl));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:6px;line-height:1;
+}
+.svc-note{font-size:11px;color:#555;letter-spacing:1px;margin-bottom:14px;}
+.svc-hr{height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,32,0.3),transparent);margin:12px 0;}
+.svc-detail{font-size:13px;color:#777;line-height:1.6;}
+.svc-btn{
+  display:block;width:100%;margin-top:18px;padding:12px;
+  background:linear-gradient(135deg,#1a1200,#3a2800);
+  border:1px solid rgba(212,168,32,0.5);
+  border-radius:10px;color:var(--gold);
+  font-family:'Rajdhani',sans-serif;
+  font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;text-decoration:none;
+  transition:background 0.2s,box-shadow 0.2s;
+}
+.svc-btn:hover{background:linear-gradient(135deg,#2a1e00,#5a4000);box-shadow:0 4px 20px rgba(212,168,32,0.3);}
+
+/* ══ SUBSCRIPTION ══ */
+.sub-box{
+  background:linear-gradient(135deg,#0d0d00,#1e1a00);
+  border:1px solid rgba(212,168,32,0.5);
+  border-radius:20px;padding:40px 30px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.sub-box::before{
+  content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:400px;height:200px;
+  background:radial-gradient(ellipse,rgba(212,168,32,0.12),transparent 70%);
+  pointer-events:none;
+}
+.sub-crown{font-size:52px;display:block;margin-bottom:16px;animation:crownFloat 2s ease-in-out infinite;}
+@keyframes crownFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+.sub-price{
+  font-family:'Orbitron',monospace;font-size:48px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold),var(--goldl),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:6px;
+}
+.sub-period{font-size:14px;letter-spacing:3px;color:rgba(212,168,32,0.6);margin-bottom:24px;}
+.sub-features{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:12px;}
+.sub-features li{
+  display:flex;align-items:center;gap:10px;
+  font-size:15px;color:#bbb;letter-spacing:1px;
+  padding:8px 16px;
+  background:rgba(212,168,32,0.05);
+  border-radius:8px;border-left:2px solid rgba(212,168,32,0.4);
+}
+.sub-features li span{color:var(--goldl);font-size:18px;}
+.sub-cta{
+  display:inline-block;padding:16px 48px;
+  background:linear-gradient(135deg,#c8a000,#e8c800);
+  border-radius:50px;color:#000;
+  font-family:'Orbitron',monospace;font-size:13px;font-weight:900;
+  letter-spacing:2px;text-decoration:none;
+  box-shadow:0 8px 30px rgba(212,168,32,0.4);
+  transition:box-shadow 0.25s,transform 0.2s;
+}
+.sub-cta:hover{box-shadow:0 12px 50px rgba(212,168,32,0.7);transform:translateY(-3px);}
+
+/* ══ LIVE NIGHT OUT ══ */
+.live-box{
+  background:linear-gradient(135deg,#0d0010,#1a0020);
+  border:1px solid rgba(255,50,150,0.4);
+  border-radius:20px;padding:40px 24px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.live-box::before{
+  content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+  width:350px;height:150px;
+  background:radial-gradient(ellipse,rgba(255,50,150,0.12),transparent 70%);
+  pointer-events:none;
+}
+.live-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,20,60,0.15);
+  border:1px solid rgba(255,20,60,0.5);
+  border-radius:30px;padding:6px 18px;
+  font-size:12px;font-weight:700;letter-spacing:2px;color:#ff3060;
+  margin-bottom:18px;text-transform:uppercase;
+}
+.live-dot{width:10px;height:10px;border-radius:50%;background:#ff2040;animation:liveAnim 0.9s infinite;}
+@keyframes liveAnim{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.5)}}
+.live-title{
+  font-family:'Cinzel',serif;font-size:clamp(18px,4vw,28px);font-weight:700;
+  color:#fff;letter-spacing:3px;margin-bottom:12px;
+}
+.live-desc{font-size:14px;color:#996;line-height:1.7;max-width:500px;margin:0 auto 24px;letter-spacing:1px;}
+.live-time{
+  display:inline-block;
+  background:rgba(255,50,150,0.1);
+  border:1px solid rgba(255,50,150,0.3);
+  border-radius:12px;padding:14px 28px;
+  font-family:'Orbitron',monospace;font-size:16px;
+  color:#ff80b0;letter-spacing:2px;margin-bottom:24px;
+}
+.live-btn{
+  display:inline-block;padding:14px 40px;
+  background:linear-gradient(135deg,#cc0040,#ff2080);
+  border-radius:50px;color:#fff;
+  font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;
+  letter-spacing:2px;text-decoration:none;
+  box-shadow:0 6px 28px rgba(255,20,80,0.4);
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+.live-btn:hover{box-shadow:0 10px 40px rgba(255,20,80,0.7);transform:translateY(-2px);}
+
+/* ══ MEETUP ══ */
+.meetup-box{
+  background:linear-gradient(135deg,#001a0a,#002a10);
+  border:1px solid rgba(0,220,100,0.3);
+  border-radius:20px;padding:40px 24px;text-align:center;
+}
+.meetup-icon{font-size:52px;margin-bottom:16px;display:block;animation:iconFloat 2s ease-in-out infinite;}
+.meetup-title{
+  font-family:'Cinzel',serif;font-size:clamp(18px,4vw,26px);
+  color:#00ff80;letter-spacing:3px;margin-bottom:12px;
+}
+.meetup-desc{font-size:14px;color:#446;line-height:1.8;max-width:500px;margin:0 auto 24px;color:#5a8a6a;}
+.meetup-btn{
+  display:inline-block;padding:14px 40px;
+  background:linear-gradient(135deg,#006030,#00a050);
+  border-radius:50px;color:#fff;
+  font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;
+  letter-spacing:2px;text-decoration:none;
+  box-shadow:0 6px 28px rgba(0,180,80,0.3);
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+.meetup-btn:hover{box-shadow:0 10px 40px rgba(0,220,100,0.5);transform:translateY(-2px);}
+
+/* ══ REVIEWS ══ */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.review-card{
+  background:linear-gradient(160deg,#0e0e0e,#141414);
+  border:1px solid rgba(212,168,32,0.2);
+  border-radius:14px;padding:22px 18px;
+  transition:transform 0.25s,box-shadow 0.25s;
+}
+.review-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(212,168,32,0.15);}
+.stars{color:var(--goldl);font-size:18px;letter-spacing:2px;margin-bottom:10px;}
+.review-text{font-size:13px;color:#aaa;line-height:1.7;margin-bottom:14px;font-style:italic;}
+.reviewer{display:flex;align-items:center;gap:10px;}
+.rev-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,#2a1a00,#5a3a00);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:var(--gold);
+  flex-shrink:0;
+}
+.rev-name{font-size:13px;font-weight:600;color:#ddd;letter-spacing:1px;}
+.rev-date{font-size:11px;color:#444;}
+
+/* ── STATS ── */
+.stats-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:12px;margin-bottom:48px;
+}
+.stat-box{
+  background:rgba(212,168,32,0.05);
+  border:1px solid rgba(212,168,32,0.2);
+  border-radius:12px;padding:18px 12px;text-align:center;
+}
+.stat-num{
+  font-family:'Orbitron',monospace;font-size:28px;font-weight:900;
+  background:linear-gradient(135deg,var(--gold),var(--goldl));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:4px;
+}
+.stat-label{font-size:11px;letter-spacing:2px;color:#555;text-transform:uppercase;}
+
+/* ══ QR / CONTACT ══ */
+.contact-wrap{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;align-items:center;
+}
+.qr-card{
+  background:#fff;border-radius:20px;padding:24px;
+  display:flex;flex-direction:column;align-items:center;
+  box-shadow:0 8px 40px rgba(212,168,32,0.2);
+}
+.qr-svg{width:200px;height:200px;margin-bottom:14px;}
+.qr-handle{
+  font-family:'Orbitron',monospace;font-size:16px;font-weight:700;
+  background:linear-gradient(135deg,#1a6aff,#00aaff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;letter-spacing:2px;
+}
+.contact-info{display:flex;flex-direction:column;gap:14px;}
+.info-row{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(212,168,32,0.05);
+  border:1px solid rgba(212,168,32,0.2);
+  border-radius:12px;padding:14px 18px;
+}
+.info-icon{font-size:22px;}
+.info-text{font-size:14px;letter-spacing:1px;color:#ccc;}
+.info-text strong{color:var(--gold);display:block;font-size:15px;}
+.tg-main-btn{
+  display:block;padding:16px 24px;
+  background:linear-gradient(135deg,#1a5acc,#0088ff);
+  border-radius:14px;color:#fff;text-decoration:none;
+  font-family:'Orbitron',monospace;font-size:12px;font-weight:700;
+  letter-spacing:2px;text-align:center;
+  box-shadow:0 6px 28px rgba(0,100,255,0.3);
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+.tg-main-btn:hover{box-shadow:0 10px 40px rgba(0,150,255,0.5);transform:translateY(-2px);}
+
+/* ══ FOOTER ══ */
+footer{
+  background:linear-gradient(180deg,#000,#080808);
+  border-top:1px solid rgba(212,168,32,0.15);
+  padding:40px 20px;
+  text-align:center;
+}
+.footer-logo{
+  font-family:'Cinzel',serif;font-size:28px;font-weight:900;
+  background:linear-gradient(180deg,#c0c0c8,#808090);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:8px;letter-spacing:4px;
+}
+.footer-links{display:flex;justify-content:center;gap:24px;margin:16px 0;flex-wrap:wrap;}
+.footer-links a{font-size:12px;letter-spacing:2px;color:#444;text-decoration:none;text-transform:uppercase;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-dev{font-size:12px;color:#2a2a2a;letter-spacing:2px;margin-top:16px;line-height:2;}
+.footer-dev span{color:#3a2800;}
+.footer-dev strong{color:var(--gold);}
+.footer-thanks{font-size:11px;color:#222;letter-spacing:2px;margin-top:8px;}
+.footer-thanks em{color:#3a2a00;font-style:normal;}
+
+/* ══ SCROLL REVEAL ══ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s,transform 0.7s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ══ FLOATING PARTICLES ══ */
+.sparkle{
+  position:fixed;pointer-events:none;z-index:1;
+  width:3px;height:3px;border-radius:50%;
+  background:var(--gold);
+  animation:sparkleAnim var(--dur) ease-in infinite var(--delay);
+}
+@keyframes sparkleAnim{
+  0%{opacity:0;transform:translateY(0) scale(0);}
+  20%{opacity:1;transform:translateY(-20px) scale(1);}
+  100%{opacity:0;transform:translateY(-80px) scale(0);}
+}
+
+/* scrollbar */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#000;}
+::-webkit-scrollbar-thumb{background:rgba(212,168,32,0.4);border-radius:4px;}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg-lines"></div>
+
+  <!-- Vegeta Chrome Logo -->
+  <div class="vegeta-logo-wrap">
+    <div class="vegeta-logo">VEGETA</div>
+  </div>
+  <div class="mommy-title">Step Mommy Premium Services</div>
+  <div class="domain-tag">thenextworth.com</div>
+
+  <!-- Anime Dancer Girl -->
+  <div class="anime-stage">
+    <svg class="dancer-svg" viewBox="0 0 220 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- GLOW BG -->
+      <ellipse cx="110" cy="240" rx="70" ry="20" fill="rgba(212,168,32,0.15)"/>
+      <!-- DRESS SKIRT flowing -->
+      <path d="M75 165 Q55 200 45 250 Q80 240 110 245 Q140 240 175 250 Q165 200 145 165 Z" fill="url(#dressGrad)" opacity="0.9"/>
+      <!-- dress frills -->
+      <path d="M50 220 Q80 210 110 215 Q140 210 170 220" stroke="rgba(255,200,100,0.5)" stroke-width="1.5" fill="none"/>
+      <path d="M47 235 Q80 225 110 230 Q140 225 173 235" stroke="rgba(255,200,100,0.4)" stroke-width="1.5" fill="none"/>
+      <!-- TORSO -->
+      <path d="M85 110 Q85 165 95 168 L125 168 Q135 165 135 110 Z" fill="url(#bodyGrad)"/>
+      <!-- CORSET DETAILS -->
+      <rect x="90" y="125" width="40" height="30" rx="4" fill="rgba(212,168,32,0.2)" stroke="rgba(212,168,32,0.5)" stroke-width="0.5"/>
+      <line x1="110" y1="125" x2="110" y2="155" stroke="rgba(212,168,32,0.4)" stroke-width="0.5"/>
+      <!-- ARMS dancing -->
+      <!-- Left arm raised -->
+      <path d="M85 115 Q60 90 45 70" stroke="url(#skinGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M45 70 Q38 60 42 52" stroke="url(#skinGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <!-- Right arm out -->
+      <path d="M135 115 Q165 100 180 115" stroke="url(#skinGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M180 115 Q192 120 190 128" stroke="url(#skinGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <!-- NECK -->
+      <rect x="103" y="90" width="14" height="22" rx="7" fill="#f4c4a0"/>
+      <!-- HEAD -->
+      <ellipse cx="110" cy="72" rx="32" ry="34" fill="#f4c4a0"/>
+      <!-- HAIR back (dark) -->
+      <path d="M78 60 Q75 30 80 15 Q110 5 140 15 Q145 30 142 60" fill="#1a0a30"/>
+      <!-- HAIR side strands -->
+      <path d="M78 60 Q68 80 72 100" stroke="#1a0a30" stroke-width="8" stroke-linecap="round" fill="none"/>
+      <path d="M142 60 Q150 75 148 95" stroke="#1a0a30" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <!-- HAIR front -->
+      <path d="M82 55 Q90 40 110 38 Q130 40 138 55" fill="#1a0a30"/>
+      <!-- Ahoge (antenna hair) -->
+      <path d="M110 38 Q112 20 118 14" stroke="#2a1040" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <circle cx="119" cy="12" r="5" fill="#8040ff"/>
+      <!-- Hair clip / bow -->
+      <path d="M90 50 Q95 42 100 50 Q95 56 90 50Z" fill="url(#goldGrad)"/>
+      <path d="M90 50 Q95 58 100 50" fill="rgba(212,168,32,0.6)"/>
+      <!-- EYES -->
+      <!-- Left eye -->
+      <ellipse cx="97" cy="68" rx="8" ry="9" fill="#fff"/>
+      <ellipse cx="97" cy="69" rx="6" ry="7" fill="#5020d0"/>
+      <ellipse cx="97" cy="69" rx="4" ry="5" fill="#200080"/>
+      <circle cx="99" cy="66" r="2" fill="#fff"/>
+      <circle cx="95" cy="70" r="1" fill="#fff" opacity="0.6"/>
+      <!-- Right eye -->
+      <ellipse cx="123" cy="68" rx="8" ry="9" fill="#fff"/>
+      <ellipse cx="123" cy="69" rx="6" ry="7" fill="#5020d0"/>
+      <ellipse cx="123" cy="69" rx="4" ry="5" fill="#200080"/>
+      <circle cx="125" cy="66" r="2" fill="#fff"/>
+      <circle cx="121" cy="70" r="1" fill="#fff" opacity="0.6"/>
+      <!-- eyelashes -->
+      <path d="M89 63 Q91 60 93 63" stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M101 63 Q103 60 105 63" stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M115 63 Q117 60 119 63" stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M127 63 Q129 60 131 63" stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <!-- BLUSH -->
+      <ellipse cx="90" cy="76" rx="9" ry="5" fill="rgba(255,120,120,0.35)"/>
+      <ellipse cx="130" cy="76" rx="9" ry="5" fill="rgba(255,120,120,0.35)"/>
+      <!-- MOUTH smile -->
+      <path d="M103 85 Q110 92 117 85" stroke="#e06080" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- LEGS -->
+      <!-- Left leg -->
+      <path d="M95 168 Q88 200 82 235" stroke="url(#skinGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <!-- Right leg kicked out -->
+      <path d="M125 168 Q138 195 155 215" stroke="url(#skinGrad)" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <!-- SHOES -->
+      <ellipse cx="80" cy="238" rx="12" ry="7" fill="#cc1060" transform="rotate(-5 80 238)"/>
+      <rect x="72" y="232" width="16" height="8" rx="4" fill="#cc1060"/>
+      <rect x="82" y="238" width="4" height="10" rx="2" fill="#aa0840"/><!-- heel -->
+      <ellipse cx="155" cy="218" rx="12" ry="7" fill="#cc1060" transform="rotate(20 155 218)"/>
+      <rect x="147" y="212" width="16" height="8" rx="4" fill="#cc1060" transform="rotate(20 155 218)"/>
+      <!-- Musical notes floating -->
+      <text x="30" y="80" font-size="18" fill="rgba(212,168,32,0.7)" font-family="serif">♪</text>
+      <text x="168" y="65" font-size="14" fill="rgba(212,168,32,0.5)" font-family="serif">♫</text>
+      <text x="20" y="130" font-size="12" fill="rgba(212,168,32,0.4)" font-family="serif">♩</text>
+      <text x="182" y="140" font-size="16" fill="rgba(212,168,32,0.6)" font-family="serif">♪</text>
+      <!-- sparkles around -->
+      <path d="M35 50 L37 44 L39 50 L45 52 L39 54 L37 60 L35 54 L29 52 Z" fill="rgba(212,168,32,0.8)"/>
+      <path d="M175 50 L177 45 L179 50 L184 52 L179 54 L177 58 L175 54 L170 52 Z" fill="rgba(212,168,32,0.7)"/>
+      <path d="M160 20 L161 17 L162 20 L165 21 L162 22 L161 25 L160 22 L157 21 Z" fill="rgba(255,180,80,0.9)"/>
+      <defs>
+        <linearGradient id="dressGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cc0070"/>
+          <stop offset="50%" stop-color="#a00050"/>
+          <stop offset="100%" stop-color="#800040"/>
+        </linearGradient>
+        <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cc0070"/>
+          <stop offset="100%" stop-color="#800040"/>
+        </linearGradient>
+        <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f8d4b0"/>
+          <stop offset="100%" stop-color="#e8b890"/>
+        </linearGradient>
+        <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#d4a820"/>
+          <stop offset="100%" stop-color="#f0c840"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="dancer-glow"></div>
+  </div>
+
+  <div class="online-pill"><span class="green-dot"></span>Online Now — Daily Night Live</div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="section reveal">
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-num">99+</div><div class="stat-label">Customers</div></div>
+    <div class="stat-box"><div class="stat-num">5.0</div><div class="stat-label">Star Rating</div></div>
+    <div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">Satisfaction</div></div>
+    <div class="stat-box"><div class="stat-num">24/7</div><div class="stat-label">Available</div></div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <p class="sec-title">Our Services</p>
+  <p class="sec-sub">Choose what you desire</p>
+  <div class="services-grid">
+    <div class="svc-card">
+      <span class="svc-icon">📹</span>
+      <div class="svc-name">Video Call</div>
+      <div class="svc-price">₹300</div>
+      <div class="svc-note">Advance Required</div>
+      <div class="svc-hr"></div>
+      <div class="svc-detail">Private live video session<br>with Vegeta Mommy</div>
+      <a class="svc-btn" href="https://t.me/UrVegeta" target="_blank">Book Now →</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">🎙️</span>
+      <div class="svc-name">Voice Call</div>
+      <div class="svc-price">₹100</div>
+      <div class="svc-note">1 Full Hour</div>
+      <div class="svc-hr"></div>
+      <div class="svc-detail">Private voice call<br>Full 1 hour session</div>
+      <a class="svc-btn" href="https://t.me/UrVegeta" target="_blank">Book Now →</a>
+    </div>
+    <div class="svc-card">
+      <span class="svc-icon">💬</span>
+      <div class="svc-name">Telegram Chat</div>
+      <div class="svc-price">₹20</div>
+      <div class="svc-note">xmxchat Session</div>
+      <div class="svc-hr"></div>
+      <div class="svc-detail">Private text chat<br>on Telegram xmxchat</div>
+      <a class="svc-btn" href="https://t.me/UrVegeta" target="_blank">Book Now →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SUBSCRIPTION ══ -->
+<div class="section reveal">
+  <div class="divider"></div>
+  <p class="sec-title">30-Day Subscription</p>
+  <p class="sec-sub">Ultimate Premium Access</p>
+  <div class="sub-box">
+    <span class="sub-crown">👑</span>
+    <div class="sub-price">₹999</div>
+    <div class="sub-period">30 DAYS UNLIMITED</div>
+    <ul class="sub-features">
+      <li><span>✦</span> Unlimited Video Calls all month</li>
+      <li><span>✦</span> Daily Night Live access on channel</li>
+      <li><span>✦</span> Priority booking — skip the queue</li>
+      <li><span>✦</span> Exclusive chat anytime on Telegram</li>
+      <li><span>✦</span> VIP subscriber badge & perks</li>
+    </ul>
+    <a class="sub-cta" href="https://t.me/UrVegeta" target="_blank">Buy 30 Days Subscription →</a>
+  </div>
+</div>
+
+<!-- ══ DAILY NIGHT LIVE ══ -->
+<div class="section reveal">
+  <div class="divider"></div>
+  <div class="live-box">
+    <div class="live-pill"><span class="live-dot"></span>LIVE DAILY</div>
+    <div class="live-title">Daily Night Out Live 🌙</div>
+    <div class="live-desc">
+      Every night Vegeta Mommy goes live on her exclusive Telegram channel.
+      Join for real-time interactions, Q&A, special moments and exclusive content —
+      only for members of this channel.
+    </div>
+    <div class="live-time">🕐 Every Night — Members Only</div>
+    <br>
+    <a class="live-btn" href="https://t.me/UrVegeta" target="_blank">Join the Channel →</a>
+  </div>
+</div>
+
+<!-- ══ MEET UP ══ -->
+<div class="section reveal">
+  <div class="divider"></div>
+  <div class="meetup-box">
+    <span class="meetup-icon">🌸</span>
+    <div class="meetup-title">Meet Up in Real Life</div>
+    <div class="meetup-desc">
+      Experience the ultimate — a real-life meetup with Vegeta Mommy.
+      Limited slots available. Contact via Telegram to discuss details,
+      location and availability. Exclusively for VIP subscribers.
+    </div>
+    <a class="meetup-btn" href="https://t.me/UrVegeta" target="_blank">Request Meetup →</a>
+  </div>
+</div>
+
+<!-- ══ REVIEWS ══ -->
+<div class="section reveal">
+  <div class="divider"></div>
+  <p class="sec-title">Customer Reviews</p>
+  <p class="sec-sub">What our customers say</p>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">"Vegeta Mommy is absolutely the best. The video call was amazing, she made me feel so comfortable. 100% worth every rupee. Will subscribe for 30 days for sure!"</div>
+      <div class="reviewer"><div class="rev-avatar">A</div><div><div class="rev-name">Arjun K.</div><div class="rev-date">April 2026</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">"Best experience ever! The night live is something else — so fun and interactive. Vegeta Mommy really cares about her fans. Highly recommended to everyone!"</div>
+      <div class="reviewer"><div class="rev-avatar">R</div><div><div class="rev-name">Rahul M.</div><div class="rev-date">April 2026</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">"The voice call for ₹100 is literally a steal. She talked with me for the full hour, very sweet and genuine. Bought the 30-day sub immediately after. No regrets!"</div>
+      <div class="reviewer"><div class="rev-avatar">S</div><div><div class="rev-name">Saurav T.</div><div class="rev-date">March 2026</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">"Telegram chat at ₹20 is so worth it. Quick replies, very engaging. The video call blew my mind. Vegeta Mommy is real, genuine and so entertaining!"</div>
+      <div class="reviewer"><div class="rev-avatar">V</div><div><div class="rev-name">Vishal P.</div><div class="rev-date">March 2026</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">"I've tried many services but nothing compares to Vegeta Mommy. The night lives are incredible. She gives real attention to each subscriber. Truly 5 stars — no doubt!"</div>
+      <div class="reviewer"><div class="rev-avatar">D</div><div><div class="rev-name">Dev R.</div><div class="rev-date">February 2026</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">"Premium quality service at affordable prices. The 30-day subscription is the best investment I made. Daily live nights, exclusive content — Vegeta Mommy never disappoints!"</div>
+      <div class="reviewer"><div class="rev-avatar">K</div><div><div class="rev-name">Karan S.</div><div class="rev-date">February 2026</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTACT / QR ══ -->
+<div class="section reveal">
+  <div class="divider"></div>
+  <p class="sec-title">Contact & Booking</p>
+  <p class="sec-sub">Reach us on Telegram</p>
+  <div class="contact-wrap">
+    <div class="qr-card">
+      <!-- Stylized QR placeholder -->
+      <svg class="qr-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#fff"/>
+        <!-- Telegram logo center -->
+        <circle cx="100" cy="100" r="22" fill="url(#tgGrad)"/>
+        <path d="M90 100 L96 106 L112 92" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- QR corner squares -->
+        <rect x="14" y="14" width="52" height="52" rx="6" fill="none" stroke="url(#blueGrad)" stroke-width="5"/>
+        <rect x="24" y="24" width="32" height="32" rx="3" fill="url(#blueGrad)"/>
+        <rect x="134" y="14" width="52" height="52" rx="6" fill="none" stroke="url(#blueGrad)" stroke-width="5"/>
+        <rect x="144" y="24" width="32" height="32" rx="3" fill="url(#blueGrad)"/>
+        <rect x="14" y="134" width="52" height="52" rx="6" fill="none" stroke="url(#blueGrad)" stroke-width="5"/>
+        <rect x="24" y="144" width="32" height="32" rx="3" fill="url(#blueGrad)"/>
+        <!-- QR data dots (decorative) -->
+        <g fill="url(#blueGrad)" opacity="0.85">
+          <rect x="80" y="14" width="8" height="8" rx="1"/><rect x="92" y="14" width="8" height="8" rx="1"/>
+          <rect x="104" y="14" width="8" height="8" rx="1"/><rect x="116" y="14" width="8" height="8" rx="1"/>
+          <rect x="80" y="26" width="8" height="8" rx="1"/><rect x="104" y="26" width="8" height="8" rx="1"/>
+          <rect x="80" y="38" width="8" height="8" rx="1"/><rect x="92" y="38" width="8" height="8" rx="1"/>
+          <rect x="116" y="38" width="8" height="8" rx="1"/>
+          <rect x="14" y="80" width="8" height="8" rx="1"/><rect x="26" y="80" width="8" height="8" rx="1"/>
+          <rect x="38" y="80" width="8" height="8" rx="1"/><rect x="50" y="80" width="8" height="8" rx="1"/>
+          <rect x="14" y="92" width="8" height="8" rx="1"/><rect x="38" y="92" width="8" height="8" rx="1"/>
+          <rect x="14" y="104" width="8" height="8" rx="1"/><rect x="26" y="104" width="8" height="8" rx="1"/>
+          <rect x="50" y="104" width="8" height="8" rx="1"/>
+          <rect x="14" y="116" width="8" height="8" rx="1"/><rect x="38" y="116" width="8" height="8" rx="1"/>
+          <rect x="134" y="80" width="8" height="8" rx="1"/><rect x="146" y="80" width="8" height="8" rx="1"/>
+          <rect x="158" y="80" width="8" height="8" rx="1"/><rect x="178" y="80" width="8" height="8" rx="1"/>
+          <rect x="134" y="92" width="8" height="8" rx="1"/><rect x="158" y="92" width="8" height="8" rx="1"/>
+          <rect x="146" y="104" width="8" height="8" rx="1"/><rect x="170" y="104" width="8" height="8" rx="1"/>
+          <rect x="134" y="116" width="8" height="8" rx="1"/><rect x="158" y="116" width="8" height="8" rx="1"/>
+          <rect x="80" y="134" width="8" height="8" rx="1"/><rect x="92" y="134" width="8" height="8" rx="1"/>
+          <rect x="116" y="134" width="8" height="8" rx="1"/>
+          <rect x="80" y="146" width="8" height="8" rx="1"/><rect x="104" y="146" width="8" height="8" rx="1"/>
+          <rect x="80" y="158" width="8" height="8" rx="1"/><rect x="92" y="158" width="8" height="8" rx="1"/>
+          <rect x="104" y="158" width="8" height="8" rx="1"/><rect x="116" y="158" width="8" height="8" rx="1"/>
+          <rect x="134" y="134" width="8" height="8" rx="1"/><rect x="158" y="134" width="8" height="8" rx="1"/>
+          <rect x="146" y="146" width="8" height="8" rx="1"/><rect x="170" y="158" width="8" height="8" rx="1"/>
+          <rect x="134" y="158" width="8" height="8" rx="1"/><rect x="158" y="158" width="8" height="8" rx="1"/>
+        </g>
+        <text x="100" y="192" text-anchor="middle" font-family="Orbitron,monospace" font-size="11" font-weight="700" fill="url(#blueGrad)">@UrVegeta</text>
+        <defs>
+          <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#1a6aff"/>
+            <stop offset="100%" stop-color="#00aaff"/>
+          </linearGradient>
+          <linearGradient id="tgGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2060cc"/>
+            <stop offset="100%" stop-color="#40aaff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="qr-handle">@UrVegeta</div>
+    </div>
+    <div class="contact-info">
+      <div class="info-row">
+        <div class="info-icon">📱</div>
+        <div class="info-text"><strong>Telegram</strong>@UrVegeta — All bookings here</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">💰</div>
+        <div class="info-text"><strong>Payments</strong>Advance required for video calls</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🌙</div>
+        <div class="info-text"><strong>Night Live</strong>Daily on Telegram Channel</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">👑</div>
+        <div class="info-text"><strong>Subscription</strong>30 days VIP access</div>
+      </div>
+      <a class="tg-main-btn" href="https://t.me/UrVegeta" target="_blank">📲 Open Telegram @UrVegeta</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">VEGETA</div>
+  <div style="font-size:12px;color:#333;letter-spacing:3px;margin-bottom:16px;">STEP MOMMY PREMIUM SERVICES</div>
+  <div class="footer-links">
+    <a href="https://t.me/UrVegeta" target="_blank">Video Call</a>
+    <a href="https://t.me/UrVegeta" target="_blank">Voice Call</a>
+    <a href="https://t.me/UrVegeta" target="_blank">Chat</a>
+    <a href="https://t.me/UrVegeta" target="_blank">30-Day Sub</a>
+    <a href="https://t.me/UrVegeta" target="_blank">Night Live</a>
+    <a href="https://t.me/UrVegeta" target="_blank">Meet Up</a>
+  </div>
+  <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,32,0.2),transparent);margin:16px auto;max-width:400px;"></div>
+  <div class="footer-dev">
+    Website Developed by <strong>Vegeta Step Mommy</strong>
+  </div>
+  <div class="footer-thanks">
+    💛 Thanks to My Papa for Love and Support — <em>Yash</em>
+  </div>
+  <div style="margin-top:16px;font-size:10px;color:#1a1a1a;letter-spacing:2px;">© 2026 THENEXTWORTH.COM — ALL RIGHTS RESERVED</div>
+</footer>
+
+<script>
+// ── Particle canvas ──
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+function mkParticle(){
+  return{
+    x:Math.random()*W,y:Math.random()*H,
+    r:Math.random()*2+0.5,
+    vx:(Math.random()-0.5)*0.3,vy:-Math.random()*0.5-0.1,
+    life:1,decay:Math.random()*0.003+0.001,
+    color:Math.random()>0.5?'rgba(212,168,32,':'rgba(255,255,200,'
+  };
+}
+for(let i=0;i<80;i++)particles.push(mkParticle());
+function animParticles(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach((p,i)=>{
+    p.x+=p.vx;p.y+=p.vy;p.life-=p.decay;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.color+p.life+')';ctx.fill();
+    if(p.life<=0)particles[i]=mkParticle();
+  });
+  requestAnimationFrame(animParticles);
+}
+animParticles();
+
+// ── Scroll reveal ──
+const revEls=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+revEls.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
